@@ -1,0 +1,60 @@
+drop database khuj;
+create database khuj;
+use khuj;
+
+create table police ( 
+	id int auto_increment, 
+	name varchar(50),
+    password varchar(50),
+    PRIMARY key(id)
+);
+
+alter table police auto_increment= 1000;
+
+create table missing( 
+    id INT auto_increment, 
+	name varchar(50), 
+	details varchar(50), 
+	status varchar(10) DEFAULT 'not aprove',
+    police_id int,
+    PRIMARY KEY(id),
+    FOREIGN key (police_id) REFERENCES police(id)
+);
+
+alter table missing auto_increment= 1000;
+
+create table wanted( 
+    id INT auto_increment, 
+	name varchar(50), 
+	details varchar(50), 
+	status varchar(10) DEFAULT 'not aprove',
+    police_id int,
+    PRIMARY KEY(id),
+    FOREIGN key (police_id) REFERENCES police(id)
+);
+
+alter table wanted auto_increment= 1000;
+
+insert into police (name,password)  values ('Police Station 1','123456');
+insert into police (name,password)  values ('Police Station 2','12653456');
+insert into police (name,password)  values ('Police Station 3','123778456');
+insert into police (name,password)  values ('Police Station 4','1236756');
+insert into police (name,password)  values ('Police Station 4','12345896');
+insert into police (name,password)  values ('Police Station 6','12563456');
+insert into police (name,password)  values ('Police Station 7','12345656');
+insert into police (name,password)  values ('Police Station 8','12345546');
+
+insert into missing (name,details)  values ('abc', '5 years child');
+insert into missing (name,details)  values ('aic', '6 years child');
+insert into missing (name,details)  values ('abpc', '7 years child');
+insert into missing (name,details)  values ('ab8c', '8 years child');
+insert into missing (name,details)  values ('abc', '5 years child');
+insert into missing (name,details)  values ('4abc', '5 years child');
+
+insert into wanted (name,details)  values ('abc', 'killer');
+insert into wanted (name,details)  values ('afhc', 'killer');
+insert into wanted (name,details)  values ('abdc', 'killer');
+insert into wanted (name,details)  values ('aagrbc', 'killer');
+insert into wanted (name,details)  values ('aerbc', 'killer');
+insert into wanted (name,details)  values ('aaetbc', 'killer');
+insert into wanted (name,details)  values ('aaebc', 'killer');
